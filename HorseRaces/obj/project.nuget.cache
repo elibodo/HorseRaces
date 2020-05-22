@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1hYRw7eJoQaE28VytnL1VAo5hZa5IBwBb1PxUyHztRUg02Fjg8vIC463+RBCe57zW1PrPjFQxpWzU0BvggUmoA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Eli\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

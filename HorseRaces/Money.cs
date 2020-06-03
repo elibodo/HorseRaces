@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Dynamic;
 using System.Text;
 
@@ -16,6 +17,7 @@ namespace HorseRaces
             this.totalBalance = balance;
             this.bet = betAmount;
         }
+        
         public void Bet(decimal amount)
         {
             if (amount > totalBalance)
@@ -24,14 +26,18 @@ namespace HorseRaces
             }
         }
 
-        public void Loss(decimal lossAmount)
+        public decimal Loss(decimal lossAmount)
         {
             this.totalBalance -= lossAmount;
+            //Balance(this.totalBalance);
+            return this.totalBalance;
         }
 
-        public void Win(decimal winAmount)
+        public decimal Win(decimal winAmount)
         {
             this.totalBalance += winAmount;
+            //Balance(this.totalBalance);
+            return this.totalBalance;
         }
     }
 }

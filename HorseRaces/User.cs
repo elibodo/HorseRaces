@@ -9,7 +9,7 @@ namespace HorseRaces
     class User
     {
         public string name { get; set; }
-        public decimal initialBalance { get; }
+        public decimal balance { get; }
         public decimal totalBalance { get; set; }
 
         public static decimal newUserBalance = 1000;
@@ -18,7 +18,7 @@ namespace HorseRaces
         public User(string user)
         {
             this.name = user;
-            this.initialBalance = newUserBalance;
+            this.balance = newUserBalance;
         }
 
         public void UpdateBalance(decimal amount)

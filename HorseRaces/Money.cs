@@ -2,42 +2,82 @@
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Dynamic;
+using System.Linq;
 using System.Text;
 
 namespace HorseRaces
 {
-    class Money
+    public class Money
     {
-        public decimal totalBalance { get; set; }
-        public decimal bet { get; }
-        public decimal winLossAmount { get; set; }
+        public decimal NewBalance { get; set;}
+        public decimal CurrentBalance { get; set;}
+        public decimal BetAmount { get; }
+        public string Outcome { get; set; }
+
+        private List<BetHistory> History = new List<BetHistory>();
 
         public Money(decimal balance, decimal betAmount)
         {
-            this.totalBalance = balance;
-            this.bet = betAmount;
+            this.NewBalance = balance;
+            this.BetAmount = betAmount;
         }
-        
-        public void Bet(decimal amount)
+
+        public decimal Bet(int guessNumber, int winningNumber, decimal balance)
         {
-            if (amount > totalBalance)
+            this.CurrentBalance = balance;
+            if (guessNumber == winningNumber)
             {
-                throw new ArgumentOutOfRangeException(nameof(amount), "Bet amount is more that your balance");
+                NewBalance = Win(BetAmount);
+                Outcome = "Win";
             }
+            else
+            {
+                NewBalance = Loss(BetAmount);
+                Outcome = "Loss";
+            }
+            Console.WriteLine($"Winning Number:  {winningNumber}\n" +
+                              $"       Outcome:  {Outcome}\n" +
+                              $"       Balance:  {NewBalance}");
+
+            var newBet = new BetHistory(CurrentBalance, BetAmount, Outcome, NewBalance);
+            History.Add(newBet);
+            return NewBalance;
         }
 
-        public decimal Loss(decimal lossAmount)
+        private decimal Loss(decimal bet)
         {
-            this.totalBalance -= lossAmount;
-            //Balance(this.totalBalance);
-            return this.totalBalance;
+            this.NewBalance -= bet;
+            return NewBalance;
         }
 
-        public decimal Win(decimal winAmount)
+        private decimal Win(decimal bet)
         {
-            this.totalBalance += winAmount;
-            //Balance(this.totalBalance);
-            return this.totalBalance;
+            this.NewBalance += (bet * 2);
+            return NewBalance;
+        }
+        public string AllBets()
+        {
+            int betnum = 0;
+            var userHistory = new StringBuilder();
+            userHistory.AppendLine("Bet Number\tInitial Balance\t\tBet\tOutcome\t\tNew Balance");
+            foreach (var item in History)
+            {
+                betnum++;
+                userHistory.AppendLine($"{betnum}\t\t{item.CurrentBalance}\t\t\t{item.Bet}\t{item.Outcome}\t{item.NewBalance}");
+            }
+            return userHistory.ToString();
+        }
+
+        public void showstuff()
+        {
+            StringBuilder strang = new StringBuilder();
+            strang.Append("Bet Number\tInitial Balance\t\tBet\tOutcome\t\tNew Balance");
+            foreach (var item in History)
+            {
+                strang.AppendLine($"{item.CurrentBalance}\t\t\t{item.Bet}\t{item.Outcome}\t{item.NewBalance}");
+                Console.WriteLine(strang);
+                Console.WriteLine(History);
+            }
         }
     }
 }

@@ -11,19 +11,20 @@ namespace HorseRaces
     {
         public decimal NewBalance { get; set;}
         public decimal CurrentBalance { get; set;}
-        public decimal BetAmount { get; }
+        public decimal BetAmount { get; set; }
         public string Outcome { get; set; }
 
         private List<BetHistory> History = new List<BetHistory>();
 
-        public Money(decimal balance, decimal betAmount)
+        public Money(decimal balance)//, decimal betAmount)
         {
             this.NewBalance = balance;
-            this.BetAmount = betAmount;
+            //this.BetAmount = betAmount;
         }
 
-        public decimal Bet(int guessNumber, int winningNumber, decimal balance)
+        public decimal Bet(int guessNumber, int winningNumber, decimal balance, decimal bet)
         {
+            this.BetAmount = bet;
             this.CurrentBalance = balance;
             if (guessNumber == winningNumber)
             {
@@ -35,9 +36,9 @@ namespace HorseRaces
                 NewBalance = Loss(BetAmount);
                 Outcome = "Loss";
             }
-            Console.WriteLine($"Winning Number:  {winningNumber}\n" +
+            Console.WriteLine($"\nWinning Number:  {winningNumber}\n" +
                               $"       Outcome:  {Outcome}\n" +
-                              $"       Balance:  {NewBalance}");
+                              $"       Balance:  {NewBalance}\n");
 
             var newBet = new BetHistory(CurrentBalance, BetAmount, Outcome, NewBalance);
             History.Add(newBet);
@@ -55,29 +56,17 @@ namespace HorseRaces
             this.NewBalance += (bet * 2);
             return NewBalance;
         }
-        public string AllBets()
+        public void AllBets()
         {
             int betnum = 0;
-            var userHistory = new StringBuilder();
-            userHistory.AppendLine("Bet Number\tInitial Balance\t\tBet\tOutcome\t\tNew Balance");
+            StringBuilder Bets = new StringBuilder();
+            Bets.AppendLine("Bet Number\tInitial Balance\t\tBet\tOutcome\t\tNew Balance");
             foreach (var item in History)
             {
                 betnum++;
-                userHistory.AppendLine($"{betnum}\t\t{item.CurrentBalance}\t\t\t{item.Bet}\t{item.Outcome}\t{item.NewBalance}");
+                Bets.AppendLine($"{betnum}\t{item.CurrentBalance}\t{item.Bet}\t{item.Outcome}\t{item.NewBalance}");
             }
-            return userHistory.ToString();
-        }
-
-        public void showstuff()
-        {
-            StringBuilder strang = new StringBuilder();
-            strang.Append("Bet Number\tInitial Balance\t\tBet\tOutcome\t\tNew Balance");
-            foreach (var item in History)
-            {
-                strang.AppendLine($"{item.CurrentBalance}\t\t\t{item.Bet}\t{item.Outcome}\t{item.NewBalance}");
-                Console.WriteLine(strang);
-                Console.WriteLine(History);
-            }
+            Console.WriteLine(Bets);
         }
     }
 }

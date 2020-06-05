@@ -29,19 +29,26 @@ namespace HorseRaces
 
         static void Game()
         {
-            // Enter name
-            Console.Write("Enter your name: ");
-            string newUser = Console.ReadLine();
+            string newUser = "";
+            bool name = false;
+            while (name == false)
+            {
+                Console.Write("Enter your name: ");
+                newUser = Console.ReadLine();
+                if (newUser != "") { name = true; }
+            }
 
             // Show user info
             var Person = new User(newUser);
             Console.WriteLine($"\nNew user: {Person.name}\n" +
-                                $"Balance:  {Person.balance}");
+                                $"Balance:  {Person.balance}\n");
+
+
+            var Bet = new Money(Person.balance);
 
             // Declare variables
             decimal money = Person.balance;
             bool game = true;
-            string allBets = "";
 
             while (game == true)
             {
@@ -54,16 +61,17 @@ namespace HorseRaces
                 // Choose which horse to bet on. Makes the user choose 1, 2, or 3 
                 while (checkInt == false)
                 {
-                    Console.Write("\nPlace Bet on Horse '1', '2', or '3': ");
+                    Console.Write("Place Bet on Horse '1', '2', or '3': ");
                     horse = Console.ReadLine();
                     checkInt = IntegerCheck(horse);
                 }
                 int horseNumber = Convert.ToInt32(horse);
 
-                // Gets the bet and checks if it is a decimal 
+                // Gets the bet and checks if it is a decimal
+                Console.WriteLine();
                 while (checkDecimal == false)
                 {
-                    Console.Write("\nEnter your bet: ");
+                    Console.Write("Enter your bet: ");
                     userbet = Console.ReadLine();
                     checkDecimal = DecimalCheck(userbet,money);
                 }
@@ -72,13 +80,10 @@ namespace HorseRaces
                 // Gets winning horse number
                 int winningNumber = RandomHorse();
 
-                // Initializing the constructor for the Money class
-                var Bet = new Money(money, betamount);
-
                 // Printing info
-                money = Bet.Bet(horseNumber,winningNumber,money);
+                money = Bet.Bet(horseNumber,winningNumber,money,betamount);
 
-                //allBets = Bet.AllBets();
+                if (money <= 0) { break; }
 
                 Console.WriteLine("Do you want to bet again?");
                 while (playAgain != "y" && playAgain != "n")
@@ -87,14 +92,13 @@ namespace HorseRaces
                     playAgain = Console.ReadLine();
                 }
 
+                
                 if (playAgain == "y") { game = true; }
-                else
-                {
-                    //Console.WriteLine(Bet.AllBets());
-                    Bet.showstuff();
-                    game = false;
-                }
+                else { game = false; }
+                
             }
+            Console.WriteLine(Person.name+ ":");
+            Bet.AllBets();
         }
 
         static bool DecimalCheck(string bet, decimal balance)

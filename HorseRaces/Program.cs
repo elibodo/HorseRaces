@@ -92,39 +92,51 @@ namespace HorseRaces
                     playAgain = Console.ReadLine();
                 }
 
-                
+                Console.WriteLine("\n\n\n");
                 if (playAgain == "y") { game = true; }
                 else { game = false; }
                 
             }
-            Console.WriteLine(Person.name+ ":");
+            Console.WriteLine($"Player: {Person.name}\n");
             Bet.AllBets();
         }
 
         static bool DecimalCheck(string bet, decimal balance)
         {
+            string message = "Bet needs to be a number greater than 0 and less than your balance.";
             try
             {
                 decimal betAmount = Convert.ToDecimal(bet);
                 if (betAmount > 0 && balance >= betAmount) { return true; }
-                else { return false; }
+                else
+                {
+                    Console.WriteLine(message);
+                    return false;
+                }
             }
             catch
             {
-;                return false;
+                Console.WriteLine(message);
+;               return false;
             }
         }
 
         static bool IntegerCheck(string horse)
         {
+            string message = "Type '1', '2', or '3'.";
             try
             {
                 int selectedHorse = Convert.ToInt32(horse);
-                if (selectedHorse > 3 || selectedHorse < 1) { return false; }
+                if (selectedHorse > 3 || selectedHorse < 1)
+                {
+                    Console.WriteLine(message);
+                    return false;
+                }
                 else { return true; }
             }
             catch
             {
+                Console.WriteLine(message);
                 return false;
             }
         }

@@ -60,11 +60,12 @@ namespace HorseRaces
         {
             int betnum = 0;
             StringBuilder Bets = new StringBuilder();
-            Bets.AppendLine("Bet Number\tInitial Balance\t\tBet\tOutcome\t\tNew Balance");
+            Bets.AppendLine("Bet Number\tInitial Balance\t\tBet\t\tOutcome\t\tNew Balance");
+            Bets.AppendLine("----------\t---------------\t\t---\t\t-------\t\t-----------");
             foreach (var item in History)
             {
                 betnum++;
-                Bets.AppendLine($"{betnum}\t{item.CurrentBalance}\t{item.Bet}\t{item.Outcome}\t{item.NewBalance}");
+                Bets.AppendLine($"{betnum}\t\t{item.CurrentBalance}\t\t\t{item.Bet}\t\t{item.Outcome}\t\t{item.NewBalance}");
             }
             Console.WriteLine(Bets);
         }

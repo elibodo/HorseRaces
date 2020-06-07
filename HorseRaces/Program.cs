@@ -49,6 +49,7 @@ namespace HorseRaces
             // Declare variables
             decimal money = Person.balance;
             bool game = true;
+            decimal maxBalance = 0;
 
             while (game == true)
             {
@@ -83,6 +84,8 @@ namespace HorseRaces
                 // Printing info
                 money = Bet.Bet(horseNumber,winningNumber,money,betamount);
 
+                if (money > maxBalance) { maxBalance = money; }
+
                 if (money <= 0) { break; }
 
                 Console.WriteLine("Do you want to bet again?");
@@ -97,7 +100,7 @@ namespace HorseRaces
                 else { game = false; }
                 
             }
-            Console.WriteLine($"Player: {Person.name}\n");
+            Console.WriteLine($"\nPlayer: {Person.name}\nMax Balance: {maxBalance}\n");
             Bet.AllBets();
         }
 

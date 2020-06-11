@@ -16,10 +16,9 @@ namespace HorseRaces
 
         private List<BetHistory> History = new List<BetHistory>();
 
-        public Money(decimal balance)//, decimal betAmount)
+        public Money(decimal balance)
         {
             this.NewBalance = balance;
-            //this.BetAmount = betAmount;
         }
 
         public decimal Bet(int guessNumber, int winningNumber, decimal balance, decimal bet)
@@ -58,6 +57,7 @@ namespace HorseRaces
         }
         public void AllBets()
         {
+            // Prints information from the list: History
             int betnum = 0;
             StringBuilder Bets = new StringBuilder();
             Bets.AppendLine("Bet Number\tInitial Balance\t\tBet\t\tOutcome\t\tNew Balance");

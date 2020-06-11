@@ -15,11 +15,13 @@ namespace HorseRaces
                 "\nYou have three options Horse 1, 2, or 3. " +
                 "Each bet will payout 2-1. Meaning if you bet $1 you will get $2 if you win.\n\n");
 
+            // Runs the game
             Game();
         }
 
         static int RandomHorse()
         {
+            // Creates a random number from 1 to 3 and returns it
             int[] numberArray = new[] { 1, 2, 3 };
             Random randomNumber = new Random();
             int number = randomNumber.Next(numberArray.Length);
@@ -29,6 +31,7 @@ namespace HorseRaces
 
         static void Game()
         {
+            // Gets the name from the user and checks if they have entered it
             string newUser = "";
             bool name = false;
             while (name == false)
@@ -38,28 +41,32 @@ namespace HorseRaces
                 if (newUser != "") { name = true; }
             }
 
-            // Show user info
+            // Creates a new user object and prints the name and starting balance
             var Person = new User(newUser);
             Console.WriteLine($"\nNew user: {Person.name}\n" +
                                 $"Balance:  {Person.balance}\n");
 
 
+            // New bet object
             var Bet = new Money(Person.balance);
 
             // Declare variables
             decimal money = Person.balance;
             bool game = true;
-            decimal maxBalance = 0;
+            decimal maxBalance = 1000;
 
+            // Game will run until the user runs out of money or if the user decides to quit
             while (game == true)
             {
+                // Declaring variables
                 string horse = "";
                 bool checkInt = false;
                 string userbet = "";
                 bool checkDecimal = false;
                 string playAgain = "";
 
-                // Choose which horse to bet on. Makes the user choose 1, 2, or 3 
+                // Choose which horse to bet on
+                // Calls IntegerCheck to verify the input
                 while (checkInt == false)
                 {
                     Console.Write("Place Bet on Horse '1', '2', or '3': ");
@@ -68,7 +75,9 @@ namespace HorseRaces
                 }
                 int horseNumber = Convert.ToInt32(horse);
 
-                // Gets the bet and checks if it is a decimal
+
+                // Gets the bet from the user
+                // Calls DecimalCheck to verify the input 
                 Console.WriteLine();
                 while (checkDecimal == false)
                 {
@@ -78,34 +87,44 @@ namespace HorseRaces
                 }
                 decimal betamount = Convert.ToDecimal(userbet);
 
-                // Gets winning horse number
+
+                // Gets winning horse number from method: RandomHorse
                 int winningNumber = RandomHorse();
 
-                // Printing info
+                // Calls a method from the money class
+                // Determines if the user won or loss and prints information
                 money = Bet.Bet(horseNumber,winningNumber,money,betamount);
 
+                // Gets the new max balance
                 if (money > maxBalance) { maxBalance = money; }
 
+                // Breaks out of the Game method if the user is out of money
                 if (money <= 0) { break; }
 
+                // User asked if they want to play again
+                // Game runs again if user entered 'y'
                 Console.WriteLine("Do you want to bet again?");
                 while (playAgain != "y" && playAgain != "n")
                 {
                     Console.Write("Type 'y' or 'n': ");
                     playAgain = Console.ReadLine();
                 }
-
                 Console.WriteLine("\n\n\n");
                 if (playAgain == "y") { game = true; }
                 else { game = false; }
                 
             }
+            // Prints the players name and their max balance while playing
             Console.WriteLine($"\nPlayer: {Person.name}\nMax Balance: {maxBalance}\n");
+
+            // Calles a method from the money class to print information
             Bet.AllBets();
         }
 
         static bool DecimalCheck(string bet, decimal balance)
         {
+            // Checks if the bet is more than 0 and less than or equal to their total balance
+            // Prints out what to do if the information that they entered is incorrect
             string message = "Bet needs to be a number greater than 0 and less than your balance.";
             try
             {
@@ -126,6 +145,8 @@ namespace HorseRaces
 
         static bool IntegerCheck(string horse)
         {
+            // Checks if the user entered either '1', '2', or '3'
+            // Prints out what to do if the information that they entered is incorrect
             string message = "Type '1', '2', or '3'.";
             try
             {

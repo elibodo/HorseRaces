@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\HorseRaces.csproj": {}
+    "C:\\Users\\Eli\\Source\\Repos\\elibodo\\HorseRaces\\HorseRaces\\HorseRaces.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\HorseRaces.csproj": {
+    "C:\\Users\\Eli\\Source\\Repos\\elibodo\\HorseRaces\\HorseRaces\\HorseRaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
+        "projectUniqueName": "C:\\Users\\Eli\\Source\\Repos\\elibodo\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
         "projectName": "HorseRaces",
-        "projectPath": "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
+        "projectPath": "C:\\Users\\Eli\\Source\\Repos\\elibodo\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
         "packagesPath": "C:\\Users\\Eli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\obj\\",
+        "outputPath": "C:\\Users\\Eli\\Source\\Repos\\elibodo\\HorseRaces\\HorseRaces\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",

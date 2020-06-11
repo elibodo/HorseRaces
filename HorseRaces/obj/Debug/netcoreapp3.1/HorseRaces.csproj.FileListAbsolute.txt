@@ -1,0 +1,13 @@
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\bin\Debug\netcoreapp3.1\HorseRaces.exe
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\bin\Debug\netcoreapp3.1\HorseRaces.deps.json
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\bin\Debug\netcoreapp3.1\HorseRaces.runtimeconfig.json
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\bin\Debug\netcoreapp3.1\HorseRaces.runtimeconfig.dev.json
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\bin\Debug\netcoreapp3.1\HorseRaces.dll
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\bin\Debug\netcoreapp3.1\HorseRaces.pdb
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.AssemblyInfoInputs.cache
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.AssemblyInfo.cs
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.csproj.CoreCompileInputs.cache
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.dll
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.pdb
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.genruntimeconfig.cache
+C:\Users\Eli\Source\Repos\elibodo\HorseRaces\HorseRaces\obj\Debug\netcoreapp3.1\HorseRaces.csprojAssemblyReference.cache

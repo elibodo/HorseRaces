@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1hYRw7eJoQaE28VytnL1VAo5hZa5IBwBb1PxUyHztRUg02Fjg8vIC463+RBCe57zW1PrPjFQxpWzU0BvggUmoA==",
+  "dgSpecHash": "8bxy+zd+92UCTvWwhXreubH9q6Vkx12tPdis15DJtRMx0Lm9JeAtu/ocTErJQwwKRNRdyBk2VttFFbdxAGlG4Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eli\\Desktop\\C# Practice\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
+  "projectFilePath": "C:\\Users\\Eli\\Source\\Repos\\elibodo\\HorseRaces\\HorseRaces\\HorseRaces.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eli\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
   ],
